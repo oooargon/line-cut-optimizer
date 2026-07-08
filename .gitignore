@@ -1,0 +1,109 @@
+# Examples
+/examples/
+/templates/
+
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+
+# Production - НЕ игнорируем out/ и dist/electron/ для билдов
+# /out/ - НЕ игнорируем, нужен для билда
+# /dist/ - игнорируем, но разрешаем dist/electron/ и dist/build/
+/dist/*
+!/dist/electron/
+!/dist/build/
+!/out/
+
+# Release артефакты (exe файлы)
+/release/
+
+# Android / iOS native build outputs (not committed)
+android/app/build/
+android/.gradle/
+android/build/
+android/app/release.keystore
+ios-derived/
+*.apk
+*.aab
+*.ipa
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env*.local
+.env
+
+# Vercel
+.vercel
+
+# TypeScript исходники - НЕ коммитим в эту ветку
+# Игнорируем все TypeScript файлы исходников
+# *.ts
+!*.d.ts
+!tsconfig.json
+!next-env.d.ts
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Electron исходники - НЕ коммитим
+electron/*.ts
+!electron/tsconfig.json
+
+# Компоненты и библиотеки исходники - НЕ коммитим
+#components/*.tsx
+#lib/*.ts
+#app/*.tsx
+#app/*.ts
+
+# Разрешаем только скомпилированные файлы
+!dist/electron/*.js
+!dist/electron/*.json
+
+# Копируются при сборке (scripts/copy-electron-assets.js), не коммитим
+dist/electron/icon.ico
+dist/electron/SumatraPDF-3.4.6-32.exe
+
+# Build assets (иконки для electron-builder) - разрешаем
+!dist/build/icon.ico
+
+# Certificates (НИКОГДА не коммитьте сертификаты!)
+*.pfx
+*.p12
+*.cer
+*.crt
+*.key
+certificate.*
+code-signing.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Документация - разрешаем
+!docs/
+
+# TypeScript sources
+# **/*.ts
+# **/*.tsx
+
+# Release binaries staged for Vercel mirror (not committed)
+/public/downloads/v*/
+/public/downloads/latest/

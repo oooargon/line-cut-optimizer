@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512" role="img" aria-label="Загрузка">
+  <style>
+    .stage {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: uniform-emerge 3.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+    .icon-emerge {
+      mix-blend-mode: screen;
+    }
+    .singularity-outer {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: bloom-flash 3.2s ease-out infinite;
+    }
+    .singularity-core {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: core-flash 3.2s ease-out infinite;
+    }
+    .singularity-point {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: point-flash 3.2s ease-out infinite;
+    }
+    @keyframes uniform-emerge {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+        filter: blur(16px) brightness(2.4);
+      }
+      12% {
+        opacity: 0.45;
+        transform: scale(0.06);
+        filter: blur(10px) brightness(2);
+      }
+      38% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0) brightness(1.15);
+      }
+      58%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0) brightness(1);
+      }
+    }
+    @keyframes bloom-flash {
+      0% {
+        opacity: 0;
+        transform: scale(0.05);
+      }
+      18% {
+        opacity: 0.95;
+        transform: scale(1.1);
+      }
+      42% {
+        opacity: 0.2;
+        transform: scale(1.45);
+      }
+      65%,
+      100% {
+        opacity: 0;
+        transform: scale(1.7);
+      }
+    }
+    @keyframes core-flash {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      10% {
+        opacity: 1;
+        transform: scale(1.25);
+      }
+      28% {
+        opacity: 0.55;
+        transform: scale(1.65);
+      }
+      50%,
+      100% {
+        opacity: 0;
+        transform: scale(2);
+      }
+    }
+    @keyframes point-flash {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      8% {
+        opacity: 1;
+        transform: scale(1.6);
+      }
+      22% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+      38%,
+      100% {
+        opacity: 0;
+        transform: scale(0.4);
+      }
+    }
+  </style>
+
+  <defs>
+    <radialGradient id="singularity" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="22%" stop-color="#dbeafe"/>
+      <stop offset="55%" stop-color="#60a5fa" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#1e40af" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bloom" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#93c5fd" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g transform="translate(256 256)">
+    <g class="stage">
+      <image class="icon-emerge" href="/icons/icon.png" x="-224" y="-224" width="448" height="448" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+  </g>
+
+  <circle class="singularity-outer" cx="256" cy="256" r="140" fill="url(#bloom)"/>
+  <circle class="singularity-core" cx="256" cy="256" r="56" fill="url(#singularity)" filter="url(#glow)"/>
+  <circle class="singularity-point" cx="256" cy="256" r="5" fill="#fff"/>
+</svg>

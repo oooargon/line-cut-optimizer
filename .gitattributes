@@ -1,0 +1,5 @@
+# Normalize line endings and mark Markdown as documentation for GitHub linguist.
+*.md text eol=lf linguist-documentation
+
+# Ensure Capacitor SPM manifest is counted as Swift on GitHub language stats.
+ios/App/CapApp-SPM/Package.swift linguist-language=Swift

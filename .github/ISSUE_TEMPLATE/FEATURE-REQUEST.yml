@@ -1,0 +1,61 @@
+name: "💡 Feature request"
+description: Suggest a new idea to improve Linear Cutting Stock Optimizer
+title: "💡 [Feature] <short title>"
+labels: ["enhancement"]
+body:
+  - type: input
+    id: start_date
+    attributes:
+      label: "Desired start date"
+      description: When should we begin working on this feature?
+      placeholder: "month/day/year"
+    validations:
+      required: false
+  - type: textarea
+    id: implementation_pr
+    attributes:
+      label: "Reference pull request"
+      description: Link an existing PR if it already covers part of this idea.
+      placeholder: "https://github.com/oooargon/line-cut-optimizer/pull/<id>"
+    validations:
+      required: false
+  - type: textarea
+    id: reference_issues
+    attributes:
+      label: "Related issues"
+      description: Mention any issues that provide additional context.
+      placeholder: "#123, #456"
+    validations:
+      required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: Provide a concise explanation of the requested feature.
+      placeholder: "Describe what you need and why it matters."
+    validations:
+      required: true
+  - type: textarea
+    id: basic_example
+    attributes:
+      label: "Acceptance criteria"
+      description: Outline the core scenarios or user journey this feature must satisfy.
+      placeholder: "- User can ...\n- System should ..."
+    validations:
+      required: true
+  - type: textarea
+    id: drawbacks
+    attributes:
+      label: "Risks / trade-offs"
+      description: Note any potential downsides, complexity, or required migrations.
+      placeholder: "List known risks or implementation costs."
+    validations:
+      required: true
+  - type: textarea
+    id: unresolved_question
+    attributes:
+      label: "Open questions"
+      description: Share any unanswered questions that could block the implementation.
+      placeholder: "Anything we should clarify before building?"
+    validations:
+      required: false
