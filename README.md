@@ -1,19 +1,21 @@
 <h1 align="center">Linear Cutting Stock Optimizer</h1>
 
 <p align="center">
+  <a href="https://github.com/oooargon/line-cut-optimizer/releases/tag/v1.0.8a" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Release-v1.0.8a-0A7EA4?style=for-the-badge&logo=github&logoColor=white" alt="Release v1.0.8a" /></a>
   <a href="https://www.typescriptlang.org/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <a href="https://react.dev/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" /></a>
   <a href="https://nextjs.org/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" /></a>
   <a href="https://tailwindcss.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Tailwind_CSS-0EA5E9?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" /></a>
-  <a href="https://www.electronjs.org/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Electron-2B2E3A?style=for-the-badge&logo=electron&logoColor=47848F" alt="Electron" /></a>
-  <a href="https://capacitorjs.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" alt="Capacitor" /></a>
-  <a href="https://developer.android.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" /></a>
-  <a href="https://developer.apple.com/ios/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" alt="iOS" /></a>
   <a href="https://github.com/parallax/jsPDF" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/jsPDF-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="jsPDF" /></a>
   <a href="https://github.com/exceljs/exceljs" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/ExcelJS-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="ExcelJS" /></a>
 </p>
 
 <p align="center">
+  <a href="https://www.electronjs.org/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Electron-2B2E3A?style=for-the-badge&logo=electron&logoColor=47848F" alt="Electron" /></a>
+  <a href="https://capacitorjs.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" alt="Capacitor" /></a>
+  <a href="https://developer.android.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" /></a>
+  <a href="https://developer.apple.com/ios/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" alt="iOS" /></a>
+  <a href="https://workers.cloudflare.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Cloudflare_Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare Workers" /></a>
   <a href="./README.md" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/English-0052CC?style=for-the-badge&logo=github&logoColor=white" alt="English" /></a>
   <a href="./README_RU.md" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Русский-0052CC?style=for-the-badge&logo=github&logoColor=white" alt="Русский" /></a>
 </p>
@@ -59,6 +61,7 @@ A web-based calculator for optimal linear material cutting (pipes, profiles, reb
 - **jsPDF** - PDF document generation
 - **Electron** - Desktop application platform
 - **Capacitor** - Android and iOS (WebView wrapper over static Next.js export)
+- **Cloudflare Workers** - Trial API / license counter backend
 
 ### 📦 Installation
 
@@ -91,7 +94,7 @@ npm run mobile:android      # open Android Studio
 
 Output: `android/app/build/outputs/apk/debug/app-debug.apk`
 
-Multi-platform release artifacts (`.exe`, `.deb`, `.dmg`, `.apk`, `.aab`, iOS simulator zip) are published to [GitHub Releases](https://github.com/oooargon/line-cut-optimizer/releases) on `v*` tag push.
+Multi-platform release artifacts (`.exe`, `.deb`, `.dmg`, `.apk`, `.aab`, iOS simulator zip) are published to [GitHub Releases](https://github.com/oooargon/line-cut-optimizer/releases) on `v*` tag push. Latest: [v1.0.8a](https://github.com/oooargon/line-cut-optimizer/releases/tag/v1.0.8a).
 
 ### 🖥️ Desktop (Electron)
 
@@ -183,36 +186,96 @@ The application uses a greedy algorithm with pattern generation:
 
 ```
 line-cut-optimizer/
-├── app/                        # Next.js App Router entry
-│   ├── layout.tsx              # Root layout
-│   ├── page.tsx                # Main page (mounts CuttingCalculator)
-│   └── globals.css             # Global styles
-├── components/                 # React components / UI
-│   ├── CuttingCalculator.tsx   # Main calculator + UI logic
-│   ├── CuttingVisualization.tsx# Cutting patterns visualization
-│   ├── AboutModal.tsx          # In‑app README / license viewer
-│   └── TechCardComparison.tsx  # Tekla tech card comparison UI
-├── lib/                        # Core domain logic
-│   ├── cutting-stock.ts        # Cutting stock algorithm
-│   ├── long-part-splitter.ts   # Long parts A/B splitter
-│   ├── excel-parser.ts         # Standard Excel / Blank‑RZ parser
-│   ├── tekla_tech_card.ts      # Tekla tech card parser
-│   ├── advance_steel_parser.ts # Advance Steel XML / Excel parser
-│   ├── blank_rz.ts             # Blank‑RZ helpers and weight calc
-│   ├── fabtrol_generator.ts    # FabTrol XML export for ProNest/PowerFab
-│   ├── tech_card_comparator.ts # Tekla tech card comparison logic
-│   ├── pdf-font-loader.ts      # PDF font preloading for jsPDF
-│   ├── asset-path.ts           # Asset path helper (web/Electron)
-│   └── format-utils.ts         # Mark/label formatting helpers
-├── public/                     # Static assets
-│   ├── icons/                  # UI icons (Excel, Tekla, ADS, FabTrol, etc.)
-│   └── assets/                 # Images and other assets
-├── examples/                   # Sample input files
-│   ├── advance/                # Advance Steel extracts (XML)
-│   ├── blank_rz/               # Blank‑RZ Excel samples
-│   └── PowerFab/               # FabTrol / PowerFab examples
-├── out/                        # Static export / build artifacts
-└── package.json                # Dependencies and scripts
+├── app/                              # Next.js App Router entry
+│   ├── layout.tsx                    # Root layout
+│   ├── page.tsx                      # Main page (mounts CuttingCalculator)
+│   └── globals.css                   # Global styles
+├── components/                       # React components / UI
+│   ├── mes/                          # MES panel, orders, daily marks, PTO upload
+│   ├── CuttingCalculator.tsx         # Main calculator + UI logic
+│   ├── CuttingVisualization.tsx      # Cutting patterns visualization
+│   ├── AutomaticCuttingButton.tsx    # One-click automatic cutting flow
+│   ├── AboutModal.tsx                # In‑app README / license viewer
+│   ├── TechCardComparison.tsx        # Tekla tech card comparison UI
+│   ├── AppBootLoader.tsx             # App bootstrap / loading screen
+│   ├── AppFooter.tsx                 # Footer with version and links
+│   ├── ThemeToggle.tsx               # Light / dark theme toggle
+│   ├── TrialNoticeModal.tsx          # Trial notice / limits UI
+│   ├── TrialApiStatusIndicator.tsx   # Trial API connectivity status
+│   ├── IconLoader.tsx                # Lazy icon loading
+│   ├── MobilePlatformInit.tsx        # Capacitor mobile init
+│   ├── PrintConfirmDialog.tsx        # Print / PDF confirmation dialog
+│   └── VisualExportHint.tsx          # Visual export hints
+├── lib/                              # Core domain logic
+│   ├── mes/                          # MES readiness, BOM ingest, Drive sync
+│   ├── trial/                        # Trial license / fingerprint / API client
+│   ├── cutting-stock.ts              # Cutting stock algorithm
+│   ├── long-part-splitter.ts         # Long parts A/B splitter
+│   ├── excel-parser.ts               # Standard Excel / Blank‑RZ parser
+│   ├── tekla_tech_card.ts            # Tekla tech card parser
+│   ├── tekla_1c_xml_generator.ts     # Tekla → 1C XML export
+│   ├── tekla_plate_dims.ts           # Tekla plate dimension helpers
+│   ├── advance_steel_parser.ts       # Advance Steel XML / Excel parser
+│   ├── blank_rz.ts                   # Blank‑RZ helpers and weight calc
+│   ├── tech_card_comparator.ts       # Tekla tech card comparison logic
+│   ├── tech_card_comparison_pdf.ts   # Comparison PDF export
+│   ├── fabtrol_generator.ts          # FabTrol XML export for ProNest/PowerFab
+│   ├── fabtrol_parser.ts             # FabTrol order / plate import
+│   ├── fabtrol_plates.ts             # FabTrol plate helpers
+│   ├── fabtrol_inquiry_parser.ts     # FabTrol inquiry (MRP) import
+│   ├── fabtrol_inquiry_generator.ts  # FabTrol inquiry (MRP) export
+│   ├── fabtrol_nc_paths.ts           # FabTrol NC path helpers
+│   ├── powerfab_parser.ts            # PowerFab work order parser
+│   ├── pronest_cutting_list_parser.ts   # ProNest cutting list import
+│   ├── pronest_cutting_list_generator.ts# ProNest cutting list export
+│   ├── pronest_pnl_generator.ts      # ProNest PNL file generator
+│   ├── snl_generator.ts              # SNL / metal demand export
+│   ├── pdf-font-loader.ts            # PDF font preloading for jsPDF
+│   ├── pdf-layout.ts                 # PDF layout helpers
+│   ├── pdf-print.ts                  # PDF generation and print
+│   ├── capacitor-linecut-app.ts      # Capacitor app bridge helpers
+│   ├── boot-loader.ts                # Boot / splash loader helpers
+│   ├── asset-path.ts                 # Asset path helper (web/Electron)
+│   ├── format-utils.ts               # Mark/label formatting helpers
+│   ├── app-links.ts                  # External links and store URLs
+│   ├── app-version.ts                # App version metadata
+│   ├── platform-api.ts               # Platform detection (web/Electron/mobile)
+│   ├── processing-tags.ts            # Processing tag helpers
+│   └── xml_escape.ts                 # XML escaping utilities
+├── types/                            # Shared TypeScript types
+│   └── gost_profiles.ts              # GOST profile definitions
+├── electron/                         # Electron desktop shell
+│   ├── main.ts                       # Main process
+│   ├── preload.ts                    # Preload bridge
+│   ├── fingerprint.ts                # Desktop device fingerprint
+│   └── print-pdf.ts                  # Native PDF print helper
+├── android/                          # Capacitor Android project
+├── ios/                              # Capacitor iOS project
+├── cloudflare/                       # Cloudflare Workers (trial API)
+├── integrations/                     # 1C / ERP processing integrations
+├── scripts/                          # Build and verification scripts
+│   ├── build-android-apk.ts          # Android APK build helper
+│   ├── copy-electron-assets.ts       # Electron asset staging
+│   ├── generate-brand-icons.ts       # App icon generation
+│   ├── stage-release-downloads.ts    # Stage release assets for public/downloads
+│   └── verify-*.ts                   # FabTrol / SNL / 1C format verification
+├── public/                           # Static assets
+│   ├── icons/                        # UI icons (Excel, Tekla, ADS, FabTrol, etc.)
+│   ├── assets/                       # Images, fonts, and other assets
+│   └── downloads/                    # Release download links
+├── examples/                         # Sample input files
+│   ├── advance/                      # Advance Steel extracts (XML)
+│   ├── blank_rz/                     # Blank‑RZ Excel samples
+│   ├── FabTrol/                      # FabTrol order / DLL samples
+│   ├── PowerFab/                     # PowerFab work order examples
+│   ├── pronest/                      # ProNest cutting list samples
+│   ├── tekla/                        # Tekla tech card samples
+│   └── mes/                          # MES sample payloads
+├── docs/                             # Additional documentation
+├── out/                              # Static export / build artifacts
+├── capacitor.config.ts               # Capacitor mobile config
+├── next.config.js                    # Next.js config (static export)
+└── package.json                      # Dependencies and scripts
 ```
 
 ### 📜 License
