@@ -1,21 +1,22 @@
 <h1 align="center">Генератор карт раскроя и MES‑отчётов</h1>
 
 <p align="center">
+  <a href="https://github.com/oooargon/line-cut-optimizer/releases/tag/v1.0.8b" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Release-v1.0.8b-0A7EA4?style=for-the-badge&logo=github&logoColor=white" alt="Release v1.0.8a" /></a>
   <a href="https://www.typescriptlang.org/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <a href="https://react.dev/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" /></a>
   <a href="https://nextjs.org/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" /></a>
   <a href="https://tailwindcss.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Tailwind_CSS-0EA5E9?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" /></a>
-  <a href="https://www.electronjs.org/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Electron-2B2E3A?style=for-the-badge&logo=electron&logoColor=47848F" alt="Electron" /></a>
-  <a href="https://capacitorjs.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" alt="Capacitor" /></a>
-  <a href="https://developer.android.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" /></a>
-  <a href="https://developer.apple.com/ios/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" alt="iOS" /></a>
   <a href="https://github.com/parallax/jsPDF" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/jsPDF-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="jsPDF" /></a>
   <a href="https://github.com/exceljs/exceljs" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/ExcelJS-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="ExcelJS" /></a>
 </p>
 
 <p align="center">
+  <a href="https://www.electronjs.org/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Electron-2B2E3A?style=for-the-badge&logo=electron&logoColor=47848F" alt="Electron" /></a>
+  <a href="https://capacitorjs.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" alt="Capacitor" /></a>
+  <a href="https://developer.android.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" /></a>
+  <a href="https://developer.apple.com/ios/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" alt="iOS" /></a>
+  <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/whonion/ts-linecut-opt-nesting" style="display:inline-block;margin:0 6px;"><img src="https://deploy.workers.cloudflare.com/button" height="28" alt="Deploy to Cloudflare" /></a>
   <a href="./README.md" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/English-0052CC?style=for-the-badge&logo=github&logoColor=white" alt="English" /></a>
-  <a href="./README_RU.md" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Русский-0052CC?style=for-the-badge&logo=github&logoColor=white" alt="Русский" /></a>
 </p>
 
 ## 📋 Аннотация
@@ -130,6 +131,18 @@ npm run electron:mac
       <sub>Импорт заказов PowerFab/FabTrol и экспорт листовой фасонки в FabTrol XML для ProNest.</sub>
     </td>
   </tr>
+  <tr>
+    <td>
+      <img src="./public/icons/ifc.svg" alt="IFC" width="48" /><br />
+      <strong>IFC (Tekla / Advance Steel)</strong><br />
+      <sub>Импорт IFC-модели (`.ifc`) с извлечением профилей, длин, марок и веса.</sub>
+    </td>
+    <td>
+      <img src="./public/icons/dwf.svg" alt="DWF" width="48" /><br />
+      <strong>DWF (Navisworks / Advance Steel)</strong><br />
+      <sub>Импорт лёгкой модели Navisworks (`.dwf`) с BOM из content.xml.</sub>
+    </td>
+  </tr>
 </table>
 
 </div>
@@ -157,7 +170,17 @@ npm run electron:mac
    - Расширения: `.xml`, `.xlsx`
    - Поддерживает иерархию сборок (балки/трубы + приваренные пластины) и автоматически разделяет фасонку и монтажные элементы.
 
-5. **PowerFab / FabTrol / ProNest**:
+5. **IFC (Tekla / Advance Steel)**:
+   - Импорт модели STEP IFC (`.ifc`) через `web-ifc`.
+   - Извлекает профили (`ObjectType` / `Pset_ProfileProperties`), длины, марки (`Tag`), вес и фасонку сборок.
+   - Без 3D-просмотра — только свойства.
+
+6. **DWF (Navisworks / Advance Steel)**:
+   - Импорт лёгкой модели Navisworks (`.dwf`, ZIP + `content.xml`).
+   - Читает свойства Advance Steel: профиль, длина, масса, отправочная марка, позиция.
+   - Группировка сборок и фасонки — как у IFC/экстракта Advance Steel.
+
+7. **PowerFab / FabTrol / ProNest**:
    - Экспорт листовой фасонки по маркам стали в FabTrol XML `pronest-cutting-list.xml` для загрузки в ProNest / PowerFab.
 
 ### ⚙️ Алгоритм

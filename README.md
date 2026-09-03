@@ -1,7 +1,7 @@
 <h1 align="center">Linear Cutting Stock Optimizer</h1>
 
 <p align="center">
-  <a href="https://github.com/oooargon/line-cut-optimizer/releases/tag/v1.0.8a" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Release-v1.0.8a-0A7EA4?style=for-the-badge&logo=github&logoColor=white" alt="Release v1.0.8a" /></a>
+  <a href="https://github.com/oooargon/line-cut-optimizer/releases/tag/v1.0.8b" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Release-v1.0.8b-0A7EA4?style=for-the-badge&logo=github&logoColor=white" alt="Release v1.0.8a" /></a>
   <a href="https://www.typescriptlang.org/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <a href="https://react.dev/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" /></a>
   <a href="https://nextjs.org/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" /></a>
@@ -15,8 +15,7 @@
   <a href="https://capacitorjs.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" alt="Capacitor" /></a>
   <a href="https://developer.android.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" /></a>
   <a href="https://developer.apple.com/ios/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" alt="iOS" /></a>
-  <a href="https://workers.cloudflare.com/" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Cloudflare_Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare Workers" /></a>
-  <a href="./README.md" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/English-0052CC?style=for-the-badge&logo=github&logoColor=white" alt="English" /></a>
+  <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/whonion/ts-linecut-opt-nesting" style="display:inline-block;margin:0 6px;"><img src="https://deploy.workers.cloudflare.com/button" height="28" alt="Deploy to Cloudflare" /></a>
   <a href="./README_RU.md" style="display:inline-block;margin:0 6px;"><img src="https://img.shields.io/badge/Русский-0052CC?style=for-the-badge&logo=github&logoColor=white" alt="Русский" /></a>
 </p>
 
@@ -133,6 +132,18 @@ npm run electron:mac
       <sub>Import of PowerFab/FabTrol orders and export of plate fittings to FabTrol XML for ProNest.</sub>
     </td>
   </tr>
+  <tr>
+    <td>
+      <img src="./public/icons/ifc.svg" alt="IFC" width="48" /><br />
+      <strong>IFC (Tekla / Advance Steel)</strong><br />
+      <sub>Import of IFC models (`.ifc`) with profile, length, mark and weight extraction.</sub>
+    </td>
+    <td>
+      <img src="./public/icons/dwf.svg" alt="DWF" width="48" /><br />
+      <strong>DWF (Navisworks / Advance Steel)</strong><br />
+      <sub>Import of Navisworks lightweight models (`.dwf`) with BOM from content.xml.</sub>
+    </td>
+  </tr>
 </table>
 
 </div>
@@ -160,7 +171,17 @@ The application supports several import modes and integrations:
    - Extensions: `.xml`, `.xlsx`
    - Supports hierarchical assemblies (beams/pipes + attached plates) and automatically separates fittings vs mounting elements.
 
-5. **PowerFab / FabTrol / ProNest**:
+5. **IFC (Tekla / Advance Steel)**:
+   - Imports STEP IFC models (`.ifc`) via `web-ifc`.
+   - Extracts profiles (`ObjectType` / `Pset_ProfileProperties`), lengths, marks (`Tag`), weights and assembly plates.
+   - No 3D viewer — property extraction only.
+
+6. **DWF (Navisworks / Advance Steel)**:
+   - Imports Navisworks lightweight models (`.dwf`, ZIP + `content.xml`).
+   - Reads Advance Steel properties: profile, length, mass, shipping mark, position.
+   - Assembly and plate grouping matches IFC / Advance Steel extract logic.
+
+7. **PowerFab / FabTrol / ProNest**:
    - Exports plate fittings grouped by steel grade to FabTrol XML `pronest-cutting-list.xml` for ProNest / PowerFab.
 
 ### ⚙️ Algorithm
